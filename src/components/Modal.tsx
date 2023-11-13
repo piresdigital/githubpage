@@ -4,6 +4,7 @@ interface data {
   title: string;
   subtitle: string;
   copy: string;
+  more: string;
   tag: string[];
 }
 
@@ -25,7 +26,11 @@ export default function Modal({
       </span>
       <div className=''>
         <div className='relative w-full h-[300px] bg-slate-100 border-1 border-slate-300 mb-12'>
-          <img src={data.picture} alt='' className='object-fill' />
+          <img
+            src={data.picture}
+            alt=''
+            className='block object-cover w-full h-full'
+          />
           <span className='block absolute top-6 right-6'>
             {data.tag.map((item, i) => {
               return (
@@ -51,7 +56,7 @@ export default function Modal({
         <div className='flex gap-12 justify-between'>
           <p>{data.copy}</p>
           <div className='min-w-[200px]'>
-            <a href='#' className='hover:underline'>
+            <a target='_blank' href={data.more} className='hover:underline'>
               <img
                 className='inline-block w-8 mr-2'
                 src='/img/link-icon.svg'
